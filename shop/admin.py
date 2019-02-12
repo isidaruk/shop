@@ -8,7 +8,7 @@ from .models import Category, Product
 class CategoryAdmin(admin.ModelAdmin):
     list_display = ['name', 'slug']
 
-    # 'slug' field value is automatically set using the value of 'name' field.
+    # "slug" field value is automatically set using the value of "name" field.
     prepopulated_fields = {'slug': ('name',)}
 
 
