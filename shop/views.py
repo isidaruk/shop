@@ -1,9 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from .models import Category, Product
 
-# Create your views here.
-
-
 # "category_slug" parameter to optionally filter products by a given category.
 
 
