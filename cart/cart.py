@@ -4,17 +4,19 @@ from shop.models import Product
 
 
 class Cart(object):
-    """
-    Initialize the cart.
-    """
 
-    # Store the current session.
-    self.session = request.session
-    cart = self.session.get(settings.CART_SESSION_ID)
-    if not cart:
-        # Save an empty cart in session.
-        cart = self.session[settings.CART_SESSION_ID] = {}
-    self.cart = cart
+    def __init__(self, request):
+        """
+        Initialize the cart.
+        """
+
+        # Store the current session.
+        self.session = request.session
+        cart = self.session.get(settings.CART_SESSION_ID)
+        if not cart:
+            # Save an empty cart in session.
+            cart = self.session[settings.CART_SESSION_ID] = {}
+        self.cart = cart
 
     def add(self, product, quantity=1, update_quantity=False):
         """
