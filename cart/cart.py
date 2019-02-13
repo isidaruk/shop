@@ -35,3 +35,49 @@ class Cart(object):
     def save(self):
         # Mark the session as "modified" to make sure it gets saved.
         self.session.modiffied = True
+
+    def reomove(self, product):
+        """
+        Remove a product from the cart.
+        """
+        product_id = str(product.id)
+        if product_id in self.cart:
+            del self.cart[product_id]
+            self.save()
+
+    def __iter__(self):
+        """
+        Iterate over the items in the cart.
+        """
+        product_ids = self.cart.keys()
+        products = Product.objects.filter(id_in=product_ids)
+
+        cart = self.cart.copy()
+
+        # Add the product objects to the cart.
+        for product in products:
+            cart[str(product.id)]['product'] = product
+
+        for item in cart.values():
+            item['price'] = Decimal(item['price'])
+            item['total_price'] = item['price'] * item['quantity']
+            yield item
+
+    def __len__(self):
+        """
+        Return the total number of items stored in the cart.
+        """
+        return sum(item['quantity'] for item in self.cart.values())
+
+    def get_total_price(self):
+        """
+        Calculate the total cost of the items in the cart.
+        """
+        return sum(Decimal(item['price'] * item['quantity'] for item in self.cart.values()))
+
+    def clear(self):
+        """
+        Clear the cart session.
+        """
+        del self.session[settings.CART_SESSION_ID]
+        self.save()
