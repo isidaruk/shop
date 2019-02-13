@@ -14,15 +14,14 @@ def product_list_view(request, category_slug=None):
     if category_slug:
         category = get_object_or_404(Category, slug=category_slug)
         products = products.filter(category=category)
-    return render(request,
-                  'shop/product/list.html',
-                  {'category': category,
-                   'categories': categories,
-                   'products': products})
+    context = {'category': category,
+               'categories': categories,
+               'products': products}
+    return render(request, 'shop/product_list.html', context)
 
 
 def product_detail_view(request, id, slug):
     product = get_object_or_404(Product, id=id, slug=slug, avaliable=True)
     return render(request,
-                  'shop/product/detail.html',
+                  'shop/product_detail.html',
                   {'product': product})

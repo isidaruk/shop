@@ -34,7 +34,9 @@
         {% for product in products %}
             <div class="item">
                 <a href="{{ product.get_absolute_url }}">
-                    <img src="{{ product.image.url }}" alt="Default image">
+                    <div class="col-sm-8">
+                        <img src="{{ product.image.url }}" alt="Default image" class="img-fluid">
+                    </div>
                 </a>
                 <a href="{{ product.get_absolute_url }}">{{ product.name }}</a>
                 <br>
