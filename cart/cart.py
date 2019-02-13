@@ -50,7 +50,7 @@ class Cart(object):
         Iterate over the items in the cart.
         """
         product_ids = self.cart.keys()
-        products = Product.objects.filter(id_in=product_ids)
+        products = Product.objects.filter(id__in=product_ids)
 
         cart = self.cart.copy()
 
