@@ -24,10 +24,10 @@
                     <tr>
                         <td>
                             <a href="{{ product.get_absolute_url }}">
-                                <img src="{% product.image.url %}"
+                                <img src="{{ product.image.url }}">
                             </a>
                         </td>
-                        <td>{{ product.name ]}</td>
+                        <td>{{ product.name }}</td>
                         <td>{{ item.quantity }}</td>
                         <td><a href="{% url "cart:cart_remove" product.id %}">Remove</a></td>
                         <td class="num">${{ item.price }}</td>
@@ -43,7 +43,7 @@
         </tbody>
     </table>
     <p class="text-right">
-        <a href="{% url "shop:product_list_view" %}" class="button light">Continue shopping</a>
+        <a href="{% url "shop:product_list" %}" class="button light">Continue shopping</a>
         <a href="#" class="button">Checkout</a>
     </p>
 {% endblock %}

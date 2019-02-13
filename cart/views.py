@@ -15,16 +15,16 @@ def cart_add_view(request, product_id):
         cart.add(product=product,
                  quantity=cdata['quantity'],
                  update_quantity=cdata['update'])
-    return redirect('cart:cart_detail_view')
+    return redirect('cart:cart_detail')
 
 
 def cart_remove_view(request, product_id):
     cart = Cart(request)
     product = get_object_or_404(Product, id=product_id)
     cart.remove(product)
-    return redirect('cart:cart_detail_view')
+    return redirect('cart:cart_detail')
 
 
 def cart_detail_view(request):
     cart = Cart(request)
-    return render(request, 'cart/cart_detail.html', {'cart': cart})
+    return render(request, 'cart/detail.html', {'cart': cart})

@@ -38,7 +38,7 @@ class Cart(object):
         # Mark the session as "modified" to make sure it gets saved.
         self.session.modiffied = True
 
-    def reomove(self, product):
+    def remove(self, product):
         """
         Remove a product from the cart.
         """
@@ -75,7 +75,7 @@ class Cart(object):
         """
         Calculate the total cost of the items in the cart.
         """
-        return sum(Decimal(item['price'] * item['quantity'] for item in self.cart.values()))
+        return sum(Decimal(item['price']) * item['quantity'] for item in self.cart.values())
 
     def clear(self):
         """
