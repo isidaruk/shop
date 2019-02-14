@@ -25,12 +25,23 @@
           </button>
           <div class="collapse navbar-collapse" id="navbarToggle">
             <div class="navbar-nav mr-auto">
-              <a class="nav-item nav-link" href="/">Home</a>
-              <a class="nav-item nav-link" href="#">About</a>
+              <a class="nav-item nav-link" href="{% url "shop:shop_home" %}">Home</a>
+              <a class="nav-item nav-link" href="{% url "shop:shop_about" %}">About</a>
             </div>
             <!-- Navbar Right Side -->
             <div class="navbar-nav">
-              <a class="nav-item nav-link" href="#">Your cart is still empty</a>
+              {% with total_items=cart|length %}
+                {% if cart|length > 0 %}
+                  <a class="nav-item nav-link" href="{% url "cart:cart_detail" %}">
+                    Your cart: {{ total_items }} item{{ total_items|pluralize }},
+                    ${{ cart.get_total_price }}
+                  </a>
+                {% else %}
+                  <a class="nav-item nav-link" href="{% url "cart:cart_detail" %}">
+                    Your cart is still empty
+                  </a>
+                {% endif %}
+              {% endwith %}
             </div>
           </div>
         </div>

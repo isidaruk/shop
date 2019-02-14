@@ -29,3 +29,11 @@ def product_detail_view(request, id, slug):
                   'shop/product_detail.html',
                   {'product': product,
                    'cart_product_form': cart_product_form})
+
+
+def home_view(request):
+    return render(request, 'shop/home.html')
+
+
+def about_view(request):
+    return render(request, 'shop/about.html')
