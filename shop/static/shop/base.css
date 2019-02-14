@@ -84,3 +84,28 @@ thead{
   background: #006644;
   color: white;
 }
+
+.order-info {
+    float: right;
+    width: 300px;
+    background: #efefef;
+    padding: 10px 20px;
+    border-bottom: 10px solid #006644;
+}
+
+.order-info h3 {
+    color: #006644;
+}
+
+.order-info ul li {
+    font-size: 16px;
+}
+
+.order-info p {
+    font-weight: bold;
+    float: right;
+}
+
+.order-info span {
+    float: right;
+}
