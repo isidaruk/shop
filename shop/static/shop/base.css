@@ -35,3 +35,47 @@ ul {
   border-radius: 3px;
   margin-bottom: 20px;
 }
+
+#sidebar ul{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  margin-top: 20px;
+}
+#sidebar ul li{
+  padding: 5px 10px;
+}
+#sidebar ul li.selected{
+  background: #006644;
+  color: white;
+  border-radius: 3px;
+}
+#sidebar ul li.selected a{
+  color: white;
+}
+
+form.add input[type="submit"]{
+  background: #006644;
+  border-radius: 3px;
+  border: 0;
+  padding: 5px 10px;
+  color: white;
+}
+.table-cart{
+  width: 100%;
+  margin: 10px 0;
+}
+.cart-img{
+  width: 10%;
+}
+th, td{
+  padding: 5px;
+}
+thead{
+  background: #006644;
+  color: white;
+}
+.btn{
+  background: #006644;
+  color: white;
+}
