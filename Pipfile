@@ -10,6 +10,7 @@ django = "*"
 pillow = "*"
 django-crispy-forms = "*"
 celery = "*"
+flower = "*"
 
 [requires]
 python_version = "3.6"
