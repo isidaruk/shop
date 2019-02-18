@@ -11,6 +11,7 @@ pillow = "*"
 django-crispy-forms = "*"
 celery = "*"
 flower = "*"
+djangorestframework = "*"
 
 [requires]
 python_version = "3.6"
